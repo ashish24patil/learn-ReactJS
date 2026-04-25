@@ -6,20 +6,27 @@ function App() {
   let [counter, setCounter] = useState(5);
 
   const addValue = () => {
-    setCounter(counter + 1);
-    if(counter == 0 && counter >=20){}
+    if (counter < 15) {
+      setCounter(counter + 1);
+    }
   }
 
   const removeValue = () => {
-    setCounter(counter - 1);
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
   }
   return (
     <>
-      <h1>This is simple counter program</h1>
-      <h2>Counter Value : {counter}</h2>
-      <button onClick={addValue}>Increase Value</button>
-      <br />
-      <button onClick={removeValue}>Decrese Value</button>
+      <div className='box'>
+        <h1 className='title'>This is simple counter program</h1>
+        <h2>Counter Value : {counter}</h2>
+        <div className='buttonContainer'>
+          <button className='plus' onClick={addValue}>Increase Value</button>
+          <br />
+          <button className='minus' onClick={removeValue}>Decrese Value</button>
+        </div>
+      </div>
     </>
   )
 }
