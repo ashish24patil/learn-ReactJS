@@ -1,11 +1,16 @@
 
 import './App.css'
 
+import Card from './components/card/Card'
+
 function App() {
 
   return (
     <>
-     <h1 className='bg-green-400 p-4 rounded-xl'>Tailwind CSS</h1>
+      <div>THis is React</div>
+      <Card name="Ashish" btnText="Love Pratiksha" desc="Discover cutting-edge design patterns and UI components that elevate
+                    your digital experiences."/>
+      <Card name="Pratiksha" btnText='Love Ashish' />
     </>
   )
 }
