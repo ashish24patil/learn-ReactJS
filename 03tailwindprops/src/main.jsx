@@ -4,11 +4,15 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import Counter from './components/counter/Counter.jsx'
 import BGChange from './components/bgchanger/Bgchanger.jsx'
+import PasswordGenerator from './components/passwordgenerator/PasswordGenerator.jsx'
+import CurrencyConvertor from './components/currencyconvertor/CurrencyConvertor.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <Counter />
     <App /> */}
-    <BGChange />
+    {/* <BGChange /> */}
+    {/* <PasswordGenerator /> */}
+    <CurrencyConvertor />
   </StrictMode>,
 )
