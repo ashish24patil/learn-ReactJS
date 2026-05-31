@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 
 function InputBox({
     label,
@@ -6,9 +6,12 @@ function InputBox({
     onAmountChange,
     onCurrencyChange,
     currencyOptions = [],
+    selectCurrency = 'usd',
+    amountDisable = false,
+    currencyDisable = false,
     className = ""
 }) {
-
+    const amoutInputId = useId();
     return (
         <>
             <div className="main-container">
@@ -16,14 +19,18 @@ function InputBox({
                     <form id="converter-form">
                         <div className="input-box">
                             <div className="input-section">
-                                <label>From</label>
-                                <input type="number" placeholder="Amount" value="0" />
+                                <label htmlFor={amoutInputId}>{label}</label>
+                                <input id={amoutInputId} type="number" placeholder="Amount" disabled={amountDisable} value={amount}
+                                    onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))} />
                             </div>
                             <div className="select-section">
                                 <p>Currency Type</p>
-                                <select>
-                                    <option value="usd">USD</option>
-                                    <option value="inr">INR</option>
+                                <select value={onCurrencyChange}
+                                    onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
+                                    disabled={currencyDisable}>
+                                    {currencyOptions.map((currency) => {
+                                        <option key={currency} value={currency}>{currency}</option>
+                                    })}
                                 </select>
                             </div>
                         </div>
@@ -31,7 +38,7 @@ function InputBox({
                 </div>
             </div>
         </>
-    )
+    );
 }
 
 export default InputBox;
